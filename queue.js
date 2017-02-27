@@ -1,7 +1,10 @@
 'use strict'
 module.exports = RunQueue
 
+var validate = require('aproba')
+
 function RunQueue (opts) {
+  validate('Z|O', [opts])
   if (!opts) opts = {}
   this.finished = false
   this.inflight = 0
@@ -17,6 +20,7 @@ function RunQueue (opts) {
 RunQueue.prototype = {}
 
 RunQueue.prototype.run = function () {
+  if (arguments.length !== 0) throw new Error('RunQueue.run takes no arguments')
   var self = this
   var deferred = this.deferred
   if (!deferred.promise) {
@@ -56,7 +60,7 @@ RunQueue.prototype._runQueue = function () {
     // we explicitly construct a promise here so that queue items can throw
     // or immediately return to resolve
     var queueEntry = new this.Promise(function (resolve) {
-      return resolve(next.cmd.apply(null, args))
+      resolve(next.cmd.apply(null, args))
     })
 
     queueEntry.then(function () {
@@ -77,6 +81,7 @@ RunQueue.prototype._runQueue = function () {
 RunQueue.prototype.add = function (prio, cmd, args) {
   if (this.finished) throw new Error("Can't add to a finished queue. Create a new queue.")
   if (Math.abs(Math.floor(prio)) !== prio) throw new Error('Priorities must be a positive integer value.')
+  validate('NFA|NFZ', [prio, cmd, args])
   prio = Number(prio)
   if (!this.queue[prio]) this.queue[prio] = []
   ++this.queued
