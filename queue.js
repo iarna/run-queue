@@ -16,15 +16,6 @@ function RunQueue (opts) {
 
 RunQueue.prototype = {}
 
-RunQueue.prototype.runner = function () {
-  --this.inflight
-  if (this.finished) return
-  if (this.queued <= 0 && this.inflight <= 0) {
-    this.finished = true
-    this.deferred.resolve()
-  }
-  this._runQueue()
-}
 RunQueue.prototype.run = function () {
   var self = this
   var deferred = this.deferred
@@ -69,7 +60,13 @@ RunQueue.prototype._runQueue = function () {
     })
 
     queueEntry.then(function () {
-      self.runner()
+      --self.inflight
+      if (self.finished) return
+      if (self.queued <= 0 && self.inflight <= 0) {
+        self.finished = true
+        self.deferred.resolve()
+      }
+      self._runQueue()
     }, function (err) {
       self.finished = true
       self.deferred.reject(err)
