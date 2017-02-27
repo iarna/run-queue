@@ -1,7 +1,7 @@
 {
   "name": "run-queue",
   "version": "1.0.1",
-  "description": "Process a dynamic queue of data, possibly concurrently",
+  "description": "A promise based, dynamic priority queue runner, with concurrency limiting.",
   "main": "queue.js",
   "scripts": {
     "test": "standard && tap -J test"
