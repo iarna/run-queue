@@ -3,7 +3,7 @@
 A promise based, dynamic priority queue runner, with concurrency limiting.
 
 ```js
-const RunQueue = require('@npmcorp/run-queue')
+const RunQueue = require('run-queue')
 
 const queue = new RunQueue({
   maxConcurrency: 1
