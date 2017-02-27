@@ -1,6 +1,6 @@
 {
   "name": "run-queue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Process a dynamic queue of data, possibly concurrently",
   "main": "queue.js",
   "scripts": {
