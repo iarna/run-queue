@@ -4,7 +4,7 @@
   "description": "A promise based, dynamic priority queue runner, with concurrency limiting.",
   "main": "queue.js",
   "scripts": {
-    "test": "standard && tap -J test"
+    "test": "standard && tap -J --100 test"
   },
   "keywords": [],
   "author": "Rebecca Turner <me@re-becca.org> (http://re-becca.org/)",
