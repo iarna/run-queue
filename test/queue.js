@@ -59,7 +59,7 @@ test('concur', t => {
     try {
       queueE.add(0, () => {}, [])
       t.fail('throw on add to finished queue')
-    } catch (ex) {
+    } catch (_) {
       t.pass('throw on add to finished queue')
     }
   })

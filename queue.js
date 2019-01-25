@@ -44,7 +44,7 @@ RunQueue.prototype._runQueue = function () {
       var prios = Object.keys(this.queue)
       for (var ii = 0; ii < prios.length; ++ii) {
         var prioQueue = this.queue[prios[ii]]
-        if (prioQueue.length) {
+        if (prioQueue.length > 0) {
           this.currentQueue = prioQueue
           this.currentPrio = prios[ii]
           break
