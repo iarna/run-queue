@@ -20,7 +20,7 @@
     "test": "test"
   },
   "dependencies": {
-    "aproba": "^1.1.1"
+    "aproba": "^2.0.0"
   },
   "repository": {
     "type": "git",
