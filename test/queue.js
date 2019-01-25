@@ -30,7 +30,7 @@ test('concur', t => {
   queueReprio.add(2, () => Promise.resolve(finishedReprio.push(4)))
   queueReprio.add(2, () => Promise.resolve(finishedReprio.push(5)))
   queueReprio.run().then(() => {
-    t.isDeeply(finishedReprio, [1,2,3,'a','b',4,5], 'higher prio tasks trump lower, even at runtime')
+    t.isDeeply(finishedReprio, [1, 2, 3, 'a', 'b', 4, 5], 'higher prio tasks trump lower, even at runtime')
   })
 
   const queue10 = new RunQueue({
