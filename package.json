@@ -11,7 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "standard": "^8.6.0",
-    "tap": "^10.2.0"
+    "tap": "^12.4.0"
   },
   "files": [
     "queue.js"
