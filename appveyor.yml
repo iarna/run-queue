@@ -6,7 +6,14 @@ environment:
     - nodejs_version: "8"
     - nodejs_version: "6"
     - nodejs_version: "4"
-      test_script: "npm run test-v4"
+
+for:
+  -
+    matrix:
+      only:
+        - nodejs_version: "4"
+    test_script:
+      - "npm run test-v4"
 
 platform:
   - x64
