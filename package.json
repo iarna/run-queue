@@ -4,7 +4,8 @@
   "description": "A promise based, dynamic priority queue runner, with concurrency limiting.",
   "main": "queue.js",
   "scripts": {
-    "test": "iarna-standard && tap -J --100 test"
+    "test": "iarna-standard && tap --100 test",
+    "test-v4": "tap --100 test"
   },
   "keywords": [],
   "author": "Rebecca Turner <me@re-becca.org> (http://re-becca.org/)",
